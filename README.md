@@ -31,3 +31,14 @@ great
 [newlandsvalley/elm-comidi](http://package.elm-lang.org/packages/newlandsvalley/elm-comidi/latest) library. This
 example used to just dump the raw bytes, but *elm-comidi* is so easy
 to use that I just added it in :)
+
+## Future directions
+
+The Web MIDI API exposes information about connected MIDI devices. We
+could also notify Elm programs of connect/disconnect events and
+implement MIDI output.
+
+Right now there is little motivation to do all this extra work since
+it's not clear what the final form of the Elm Web MIDI support would
+look like, who should do the work and how it should be integrated into
+the Elm ecosystem.
