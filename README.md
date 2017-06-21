@@ -21,17 +21,13 @@ browser (works on Mac Chrome, does not work on Mac Firefox).
 ## What you'll get
 
 You'll get a page that receives MIDI messages from all MIDI inputs.
-It displays a byte dump of the latest message received, so when you
-press keys on your MIDI controller the display reacts.  Plugging
-controllers in/out of USB is supported while the page is open (i.e. it
-will receive messages from newly plugged-in controllers).
+It displays a dump of the latest message received, so when you press
+keys on your MIDI controller the display reacts.  Plugging controllers
+in/out of USB is supported while the page is open (i.e. it will
+receive messages from newly plugged-in controllers).
 
-## Decoding
-
-MIDI message contents are not decoded, this just shows the raw
-bytes. Decoding is better done in an external library since that's not
-dependent on the Web MIDI API and can be done in a purely functional
-way -- e.g. MIDI files (`.mid`) contain messages in this same
-format. See
-<http://package.elm-lang.org/packages/newlandsvalley/elm-comidi/latest> for
-work in this direction.
+MIDI messages are now decoded using the
+great
+[newlandsvalley/elm-comidi](http://package.elm-lang.org/packages/newlandsvalley/elm-comidi/latest) library. This
+example used to just dump the raw bytes, but *elm-comidi* is so easy
+to use that I just added it in :)
