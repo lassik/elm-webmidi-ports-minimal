@@ -2,17 +2,12 @@
 
 var app;
 
-// JS typed arrays confuse Elm.
-function toNormalArray(obj) {
-    var ans = [];
-    for (var i = 0; i < obj.length; i++) {
-        ans.push(obj[i]);
-    }
-    return ans;
+function stringFromBytes(bytes) {
+    return String.fromCharCode.apply(String, bytes);
 }
 
 function onMidiMessage(event) {
-    app.ports.onMidiMessage.send({midiBytes: toNormalArray(event.data)});
+    app.ports.onMidiMessage.send({midiEvent: stringFromBytes(event.data)});
 }
 
 function initMidiPort(port) {

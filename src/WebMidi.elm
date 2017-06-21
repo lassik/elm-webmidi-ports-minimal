@@ -1,8 +1,11 @@
 port module WebMidi exposing (..)
 
+import Char
+import String
+
 
 type alias Message =
-    { midiBytes : List Int }
+    { midiEvent : String }
 
 
 port onMidiMessage : (Message -> msg) -> Sub msg
@@ -10,4 +13,4 @@ port onMidiMessage : (Message -> msg) -> Sub msg
 
 emptyMessage : Message
 emptyMessage =
-    { midiBytes = [ 0, 0, 0 ] }
+    { midiEvent = String.repeat 3 (String.fromChar (Char.fromCode 0)) }

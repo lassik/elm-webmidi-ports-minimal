@@ -1,6 +1,8 @@
 module Main exposing (..)
 
+import Char
 import Html
+import String
 import WebMidi
 
 
@@ -29,7 +31,11 @@ update (MidiMessage message) model =
 
 view : Model -> Html.Html Msg
 view model =
-    Html.text (toString model.midiBytes)
+    model.midiEvent
+        |> String.toList
+        |> List.map Char.toCode
+        |> toString
+        |> Html.text
 
 
 main : Program Never Model Msg
